@@ -9,7 +9,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-/*
+/*test change
 //Sets the view for the map 
 //L.mapbox.accessToken = 'pk.eyJ1IjoianRvbmNodW5vIiwiYSI6ImNqMmZxaXRqaTA3Z28yeG52ZjBtdWRnbG8ifQ.syXxENAgJ2u38pANDp7vRg';
 var mymap = L.map('mapid').setView([51.505, -0.09], 13);
