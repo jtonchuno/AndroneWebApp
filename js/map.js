@@ -52,4 +52,21 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
     maxZoom: 18,
     id: 'mapbox.satellite',
     accessToken: 'pk.eyJ1IjoianRvbmNodW5vIiwiYSI6ImNqMmZxaXRqaTA3Z28yeG52ZjBtdWRnbG8ifQ.syXxENAgJ2u38pANDp7vRg'
-}).addTo(mymap);    
+}).addTo(mymap); 
+
+var userDataRef = firebase.database().ref("UserData").orderByKey();
+userDataRef.once("value")
+    .then(function(snapshot){
+        snapshot.forEach(function(childSnapshot){
+            var key = childSnapshot.key;
+            var childData = childSnapshot.val();
+            
+            var coor_val = childSnapshot.val().Coordinate;
+            var name_val=childSnapshot.val().Name;
+            
+            $("#coordinate").append(coor_val);
+            $("#name").append(id_val);
+            //document.getElementById("name").innerHTML = name_val;
+            //document.getElementById("id").innerHTML = id_val;
+        });
+    });
