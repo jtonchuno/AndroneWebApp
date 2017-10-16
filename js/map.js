@@ -9,7 +9,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-
+/*
 //Sets the view for the map 
 //L.mapbox.accessToken = 'pk.eyJ1IjoianRvbmNodW5vIiwiYSI6ImNqMmZxaXRqaTA3Z28yeG52ZjBtdWRnbG8ifQ.syXxENAgJ2u38pANDp7vRg';
 var mymap = L.map('mapid').setView([51.505, -0.09], 13);
@@ -52,7 +52,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
     maxZoom: 18,
     id: 'mapbox.satellite',
     accessToken: 'pk.eyJ1IjoianRvbmNodW5vIiwiYSI6ImNqMmZxaXRqaTA3Z28yeG52ZjBtdWRnbG8ifQ.syXxENAgJ2u38pANDp7vRg'
-}).addTo(mymap); 
+}).addTo(mymap); */
 
 var userDataRef = firebase.database().ref("UserData").orderByKey();
 userDataRef.once("value")
