@@ -19,24 +19,11 @@ const config = {
     storageBucket: "",
     messagingSenderId: "270186001542"
 };
-firebase.initializeApp(config);
-//creating instance of database for reading and writing
-var database = firebase.database();
-
-//attempt to put data from Firebase to console
-var androneRef = database.ref('androne-1494224644502');
-androneRef.on('value', function(snapshot){
-    snapshot.forEach(function(childSnapshot){
-        var childData = child.Snapshot.val();
-        console.log('hello');
-        console.log(childData);
-    });
-});
 
 // heatmap.js configuration
 const cfg = {
-    "radius": 2,
-    "maxOpacity": .8, 
+    "radius": 7,
+    "maxOpacity": .5, 
     "scaleRadius": true, 
     "useLocalExtrema": true,
     latField: 'x',
@@ -61,11 +48,26 @@ const testData = {
         ]
 };
 
+//creating instance of database for reading and writing
+// var database = firebase.database();
+
+/*
+//attempt to put data from Firebase to console
+var androneRef = database.ref('androne-1494224644502');
+androneRef.on('value', function(snapshot){
+    snapshot.forEach(function(childSnapshot){
+        var childData = child.Snapshot.val();
+        console.log('hello');
+        console.log(childData);
+    });
+});
+*/
+
 // Wait till page is loaded to run javascript
 window.onload = function() {
     initMap(testData);
 };
-/*
+
 function initDB() {
     firebase.initializeApp(config);
 
@@ -88,7 +90,7 @@ function initDB() {
         });
     });
 }
-*/
+
 function initMap(data) {
     // Create heatmap layer and add data
     var heatmapLayer = new HeatmapOverlay(cfg);
