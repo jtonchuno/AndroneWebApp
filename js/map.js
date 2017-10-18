@@ -70,11 +70,15 @@ function initMap(data) {
 
     // Create map and set view
     map = L.map('mapid', {
-        center: new L.LatLng(25.6586, -80.3568),
-        zoom: 4,
-        layers: [baseLayer, heatmapLayer]
-    }).setView([51.505, -0.09], 13);
+        crs: L.CRS.Simple,
+        // layers: [baseLayer, heatmapLayer]
+    });
 
+    var bounds = [[0,0], [1000,1000]];
+    var image = L.imageOverlay('../img/kylefield.jpg', bounds).addTo(map);
+
+    map.fitBounds(bounds);
+    
     // Set up onclick event
     map.on('click', onMapClick);    
 }
