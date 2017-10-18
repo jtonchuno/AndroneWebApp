@@ -26,7 +26,18 @@ const cfg = {
 // Test JSON data
 const testData = {
     max: 8,
-    data: [{x: 100, y: 100, count: 3},{x: 500, y: 500, count: 1}]
+    data: [
+            {x: 500, y: 500, count: 3},
+            {x: 501, y: 500, count: 1},
+            {x: 504, y: 504, count: 3},
+            {x: 511, y: 503, count: 2},
+            {x: 506, y: 506, count: 8},
+            {x: 508, y: 512, count: 1},
+            {x: 504, y: 503, count: 1},
+            {x: 502, y: 504, count: 3},
+            {x: 505, y: 506, count: 5},
+            {x: 500, y: 508, count: 1},            
+        ]
 };
 
 // Wait till page is loaded to run javascript
