@@ -18,8 +18,8 @@ const cfg = {
     "maxOpacity": .8, 
     "scaleRadius": true, 
     "useLocalExtrema": true,
-    latField: 'lat',
-    lngField: 'lng',
+    latField: 'x',
+    lngField: 'y',
     valueField: 'count'
 };
 
