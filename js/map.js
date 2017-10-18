@@ -50,6 +50,7 @@ const testData = {
 
 //creating instance of database for reading and writing
 // var database = firebase.database();
+
 /*
 //attempt to put data from Firebase to console
 var androneRef = database.ref('androne-1494224644502');
