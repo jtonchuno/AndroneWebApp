@@ -19,7 +19,7 @@ const config = {
     storageBucket: "",
     messagingSenderId: "270186001542"
 };
-
+firebase.initializeApp(config);
 // heatmap.js configuration
 const cfg = {
     "radius": 7,
@@ -51,7 +51,7 @@ const testData = {
 //creating instance of database for reading and writing
 // var database = firebase.database();
 
-/*
+
 //attempt to put data from Firebase to console
 var androneRef = database.ref('androne-1494224644502');
 androneRef.on('value', function(snapshot){
@@ -61,13 +61,13 @@ androneRef.on('value', function(snapshot){
         console.log(childData);
     });
 });
-*/
+
 
 // Wait till page is loaded to run javascript
 window.onload = function() {
     initMap(testData);
 };
-
+/*
 function initDB() {
     firebase.initializeApp(config);
 
@@ -90,7 +90,7 @@ function initDB() {
         });
     });
 }
-
+*/
 function initMap(data) {
     // Create heatmap layer and add data
     var heatmapLayer = new HeatmapOverlay(cfg);
