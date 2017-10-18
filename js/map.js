@@ -60,7 +60,6 @@ function initDB() {
 function initMap(data) {
     // Create heatmap layer and add data
     var heatmapLayer = new HeatmapOverlay(cfg);
-    heatmapLayer.setData(data);
     
     // Create map tiles layer
     var baseLayer = new L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoianRvbmNodW5vIiwiYSI6ImNqMmZxaXRqaTA3Z28yeG52ZjBtdWRnbG8ifQ.syXxENAgJ2u38pANDp7vRg', {
@@ -72,7 +71,7 @@ function initMap(data) {
     // Create map and set view
     map = L.map('mapid', {
         crs: L.CRS.Simple,
-        minZoom: -5
+        minZoom: -3
     });
 
     var bounds = [[0,0], [1000,1000]];
@@ -81,6 +80,7 @@ function initMap(data) {
     map.fitBounds(bounds);
 
     map.addLayer(heatmapLayer);
+    heatmapLayer.setData(data);
     
     // Set up onclick event
     map.on('click', onMapClick);    
