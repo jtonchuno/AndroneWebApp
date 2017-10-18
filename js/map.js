@@ -26,7 +26,7 @@ const cfg = {
 // Test JSON data
 const testData = {
     max: 8,
-    data: [{lat: 24.6408, lng:46.7728, count: 3},{lat: 50.75, lng:-1.55, count: 1}]
+    data: [{x: 100, y: 100, count: 3},{x: 500, y: 500, count: 1}]
 };
 
 // Wait till page is loaded to run javascript
@@ -72,13 +72,15 @@ function initMap(data) {
     // Create map and set view
     map = L.map('mapid', {
         crs: L.CRS.Simple,
-        // layers: [baseLayer, heatmapLayer]
+        minZoom: -3
     });
 
     var bounds = [[0,0], [1000,1000]];
     var image = L.imageOverlay('../img/kylefield.jpg', bounds).addTo(map);
 
     map.fitBounds(bounds);
+
+    heatmapLayer.addTo(map);
     
     // Set up onclick event
     map.on('click', onMapClick);    
