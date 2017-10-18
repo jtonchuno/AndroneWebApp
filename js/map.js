@@ -20,6 +20,8 @@ const config = {
     messagingSenderId: "270186001542"
 };
 
+//creating instance of database for reading and writing
+var database = firebase.database();
 // heatmap.js configuration
 const cfg = {
     "radius": 2,
