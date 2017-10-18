@@ -29,6 +29,7 @@ const testData = {
     data: [{lat: 24.6408, lng:46.7728, count: 3},{lat: 50.75, lng:-1.55, count: 1}]
 };
 
+// Wait till page is loaded to run javascript
 window.onload = function() {
     initMap(testData);
 };
@@ -83,6 +84,8 @@ function initMap(data) {
     map.on('click', onMapClick);    
 }
 
+// Clicking the map popups the lat and long of that position
+// Eventually should be the signal data of that position
 function onMapClick(e) {
     var popup = L.popup()
         .setLatLng(e.latlng)
