@@ -27,6 +27,7 @@ var androneRef = database.ref('androne-1494224644502');
 androneRef.on('value', function(snapshot){
     snapshot.forEach(function(childSnapshot){
         var childData = child.Snapshot.val();
+        console.log('hello');
         console.log(childData);
     });
 });
