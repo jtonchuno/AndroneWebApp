@@ -84,6 +84,9 @@ function initMap(data) {
     
     // Set up onclick event
     map.on('click', onMapClick);    
+
+    console.log("heyo");
+    console.log(map.getPanes());
 }
 
 // Clicking the map popups the lat and long of that position
