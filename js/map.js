@@ -1,3 +1,11 @@
+/* TODO:
+1. Get Firebase data in here
+2. Fit firebase data to heatmap form
+3. Transfrom dBm data to count (logarithmic)
+4. Create function to look up signal data given position data for onclick popovers
+5. Fix boundaries
+*/
+
 // Map object to be initialized after page loads
 // Needs to be global for popup events
 var map;
@@ -79,25 +87,24 @@ function initMap(data) {
         accessToken: 'pk.eyJ1IjoianRvbmNodW5vIiwiYSI6ImNqMmZxaXRqaTA3Z28yeG52ZjBtdWRnbG8ifQ.syXxENAgJ2u38pANDp7vRg'
     }); 
 
-    // Create map and set view
+    // Initialize map
     map = L.map('mapid', {
         crs: L.CRS.Simple,
         minZoom: -3
     });
 
+    // Create background and bounds for custom CRS
     var bounds = [[0,0], [1000,1000]];
     var image = L.imageOverlay('../img/kylefield.jpg', bounds).addTo(map);
 
     map.fitBounds(bounds);
 
+    // Add heatmap to the map
     map.addLayer(heatmapLayer);
     heatmapLayer.setData(data);
     
     // Set up onclick event
     map.on('click', onMapClick);    
-
-    console.log("heyo");
-    console.log(map.getPanes());
 }
 
 // Clicking the map popups the lat and long of that position
