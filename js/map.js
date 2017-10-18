@@ -72,7 +72,7 @@ function initMap(data) {
     // Create map and set view
     map = L.map('mapid', {
         crs: L.CRS.Simple,
-        minZoom: -3
+        minZoom: -5
     });
 
     var bounds = [[0,0], [1000,1000]];
@@ -80,7 +80,7 @@ function initMap(data) {
 
     map.fitBounds(bounds);
 
-    heatmapLayer.addTo(map);
+    map.addLayer(heatmapLayer);
     
     // Set up onclick event
     map.on('click', onMapClick);    
