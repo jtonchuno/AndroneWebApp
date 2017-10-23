@@ -19,7 +19,7 @@ const config = {
     storageBucket: "",
     messagingSenderId: "270186001542"
 };
-firebase.initializeApp(config);
+//firebase.initializeApp(config);
 // heatmap.js configuration
 const cfg = {
     "radius": 7,
