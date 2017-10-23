@@ -23,8 +23,8 @@ var map;
 var test1 = firebase.initializeApp(config);
 console.log(test1.name);
 
-var database = firebase.database();
-console.log(database.name);
+var database = firebase.database().ref('/User Data/').once('value');
+console.log(database);
 //attempt to put data from Firebase to console
 var androneRef = database.ref('User Data');
 androneRef.on('value', function(snapshot){
