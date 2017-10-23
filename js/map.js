@@ -28,11 +28,26 @@ var database = firebase.database().ref("User Data");
 //Read entire database and output to console
 database.on("value", function(snapshot){
     console.log(snapshot.val());
-    console.log(snapshot.child("User Data"));
+    }
 }, function(error){
     console.log("Error: "+ error.code);
 });
 
+
+database.on("value", function(snapshot){
+    console.log(snapshotToArray(snapshot));
+});
+//read individual items and put them in an array
+function snapshotToArray(snapshot){
+    var returnArr = [];
+
+    snapshot.forEach(function(childSnapshot){
+        var item = childSnapshot.val();
+        item.key = childSnapshot.key;
+
+        returnArr.push(item);
+    });
+};
 // heatmap.js configuration
 const cfg = {
     "radius": 7,
