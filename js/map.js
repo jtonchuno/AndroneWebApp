@@ -6,6 +6,18 @@
 5. Fix boundaries
 */
 
+//defining function for later use
+function snapshotToArray(snapshot){
+    var returnArr = [];
+
+    snapshot.forEach(function(childSnapshot){
+        var item = childSnapshot.val();
+        item.key = childSnapshot.key;
+
+        returnArr.push(item);
+    });
+};
+
 // Map object to be initialized after page loads
 // Needs to be global for popup events
 var map;
@@ -36,17 +48,7 @@ database.on("value", function(snapshot){
 database.on("value", function(snapshot){
     console.log(snapshotToArray(snapshot));
 });
-//read individual items and put them in an array
-function snapshotToArray(snapshot){
-    var returnArr = [];
 
-    snapshot.forEach(function(childSnapshot){
-        var item = childSnapshot.val();
-        item.key = childSnapshot.key;
-
-        returnArr.push(item);
-    });
-};
 // heatmap.js configuration
 const cfg = {
     "radius": 7,
