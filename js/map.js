@@ -20,8 +20,7 @@ var map;
     messagingSenderId: "270186001542"
   };
 //var defaultApp = firebase.initializeApp(defaultAppConfig);
-var test1 = firebase.initializeApp(config);
-console.log(test1.name);
+firebase.initializeApp(config);
 
 var database = firebase.database().ref();
 ref.on("value", function(snapshot){
