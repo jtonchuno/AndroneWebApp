@@ -23,7 +23,7 @@ var map;
 firebase.initializeApp(config);
 
 var database = firebase.database().ref();
-ref.on("value", function(snapshot){
+database.on("value", function(snapshot){
     console.log(snapshot.val());
 }, function(error){
     console.log("Error: "+ error.code);
