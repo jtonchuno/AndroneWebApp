@@ -23,7 +23,12 @@ var map;
 var test1 = firebase.initializeApp(config);
 console.log(test1.name);
 
-var database = firebase.database().ref('/User Data/');
+var database = firebase.database().ref();
+ref.on("value", function(snapshot){
+    console.log(snapshot.val());
+}, function(error){
+    console.log("Error: "+ error.code);
+});
 console.log(database);
 //attempt to put data from Firebase to console
 /*androneRef.on('value', function(snapshot){
