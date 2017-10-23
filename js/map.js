@@ -28,7 +28,6 @@ var database = firebase.database().ref("User Data");
 //Read entire database and output to console
 database.on("value", function(snapshot){
     console.log(snapshot.val());
-    }
 }, function(error){
     console.log("Error: "+ error.code);
 });
