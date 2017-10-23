@@ -10,16 +10,17 @@
 // Needs to be global for popup events
 var map;
 
-// Firebase configuration
-const config = {
+// Initialize Firebase
+  var config = {
     apiKey: "AIzaSyCngnYmds3kumgSxI6ILWixSPBZuEnn8IE",
     authDomain: "androne-1494224644502.firebaseapp.com",
     databaseURL: "https://androne-1494224644502.firebaseio.com",
     projectId: "androne-1494224644502",
-    storageBucket: "",
+    storageBucket: "androne-1494224644502.appspot.com",
     messagingSenderId: "270186001542"
-};
-//firebase.initializeApp(config);
+  };
+var defaultApp = firebase.initializeApp(defaultAppConfig);
+console.log(defaultApp.name);
 // heatmap.js configuration
 const cfg = {
     "radius": 7,
