@@ -22,6 +22,16 @@ var map;
 //var defaultApp = firebase.initializeApp(defaultAppConfig);
 var test1 = firebase.initializeApp(config);
 console.log(test1.name);
+
+//attempt to put data from Firebase to console
+var androneRef = database.ref('User Data');
+androneRef.on('value', function(snapshot){
+    snapshot.forEach(function(childSnapshot){
+        var childData = child.Snapshot.val();
+        console.log('hello');
+        console.log(childData);
+    });
+});
 // heatmap.js configuration
 const cfg = {
     "radius": 7,
@@ -52,17 +62,6 @@ const testData = {
 
 //creating instance of database for reading and writing
 // var database = firebase.database();
-
-
-//attempt to put data from Firebase to console
-/*var androneRef = database.ref('User Data');
-androneRef.on('value', function(snapshot){
-    snapshot.forEach(function(childSnapshot){
-        var childData = child.Snapshot.val();
-        console.log('hello');
-        console.log(childData);
-    });
-});*/
 
 
 // Wait till page is loaded to run javascript
