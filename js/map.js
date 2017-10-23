@@ -19,8 +19,9 @@ var map;
     storageBucket: "androne-1494224644502.appspot.com",
     messagingSenderId: "270186001542"
   };
-var defaultApp = firebase.initializeApp(defaultAppConfig);
-console.log(defaultApp.name);
+//var defaultApp = firebase.initializeApp(defaultAppConfig);
+var test1 = firebase.initializeApp(config);
+console.log(test1.name);
 // heatmap.js configuration
 const cfg = {
     "radius": 7,
