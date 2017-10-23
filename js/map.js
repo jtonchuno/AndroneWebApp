@@ -10,7 +10,7 @@
 // Needs to be global for popup events
 var map;
 
-// Initialize Firebase
+// Authenticate Firebase
   var config = {
     apiKey: "AIzaSyCngnYmds3kumgSxI6ILWixSPBZuEnn8IE",
     authDomain: "androne-1494224644502.firebaseapp.com",
@@ -19,24 +19,19 @@ var map;
     storageBucket: "androne-1494224644502.appspot.com",
     messagingSenderId: "270186001542"
   };
-//var defaultApp = firebase.initializeApp(defaultAppConfig);
+//Initialize App
 firebase.initializeApp(config);
 
+//create a reference to the database
 var database = firebase.database().ref();
+
+//Read entire database and output to console
 database.on("value", function(snapshot){
     console.log(snapshot.val());
 }, function(error){
     console.log("Error: "+ error.code);
 });
-console.log(database);
-//attempt to put data from Firebase to console
-/*androneRef.on('value', function(snapshot){
-    snapshot.forEach(function(childSnapshot){
-        var childData = child.Snapshot.val();
-        console.log('hello');
-        console.log(childData);
-    });
-});*/
+
 // heatmap.js configuration
 const cfg = {
     "radius": 7,
@@ -65,38 +60,11 @@ const testData = {
         ]
 };
 
-//creating instance of database for reading and writing
-// var database = firebase.database();
-
-
 // Wait till page is loaded to run javascript
 window.onload = function() {
     initMap(testData);
 };
-/*
-function initDB() {
-    firebase.initializeApp(config);
 
-    var database = firebase.database();
-    
-    var userDataRef = firebase.database().ref("UserData").orderByKey();
-    userDataRef.once("value")
-    .then(function(snapshot){
-        snapshot.forEach(function(childSnapshot){
-            var key = childSnapshot.key;
-            var childData = childSnapshot.val();
-            
-            var coor_val = childSnapshot.val().Coordinate;
-            var name_val=childSnapshot.val().Name;
-            
-            $("#coordinate").append(coor_val);
-            $("#name").append(id_val);
-            //document.getElementById("name").innerHTML = name_val;
-            //document.getElementById("id").innerHTML = id_val;
-        });
-    });
-}
-*/
 function initMap(data) {
     // Create heatmap layer and add data
     var heatmapLayer = new HeatmapOverlay(cfg);
