@@ -44,8 +44,8 @@ database.on("value", function(snapshot){
     console.log("Error: "+ error.code);
 });
 
-firebase.database().ref('Data').once('value',function(snap){
-    console.log(JSON.stringify(snap.val()))
+firebase.database().ref('Data').once('value',function(snapshot){
+    console.log(JSON.stringify(snapshot.val()))
 })
 
 database.on("value", function(snapshot){
