@@ -35,7 +35,7 @@ var map;
 firebase.initializeApp(config);
 
 //create a reference to the database
-var database = firebase.database().ref("User Data");
+var database = firebase.database().ref("Data");
 
 //Read entire database and output to console
 database.on("value", function(snapshot){
@@ -44,7 +44,7 @@ database.on("value", function(snapshot){
     console.log("Error: "+ error.code);
 });
 
-firebase.database().ref('User Data').once('value',function(snap){
+firebase.database().ref('Data').once('value',function(snap){
     console.log(JSON.stringify(snap.val()))
 })
 
