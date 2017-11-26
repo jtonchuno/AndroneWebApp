@@ -6,18 +6,6 @@
 5. Fix boundaries
 */
 
-//defining function for later use
-function snapshotToArray(snapshot){
-    var returnArr = [];
-
-    snapshot.forEach(function(childSnapshot){
-        var item = childSnapshot.val();
-        item.key = childSnapshot.key;
-
-        returnArr.push(item);
-    });
-};
-
 // Map object to be initialized after page loads
 // Needs to be global for popup events
 var map;
@@ -47,20 +35,24 @@ database.on("value", function(snapshot){
 }, function(error){
     console.log("Error: "+ error.code);
 });
+
+//output JSON
 console.log(firebase_JSON);
-console.log(JSON.stringify(firebase_JSON));
 firebase.database().ref('Data').once('value',function(snapshot){
     console.log(JSON.stringify(snapshot.val()))
 })
 
+
+//convert from one format to another
 function convert(firebase_JSON){
     new_JSON = {max:8,data:[]};
-    for (var coordinate in firebase_JSON.Data){
+    for (var coordinate in firebase_JSON.Data[0]){
         new_JSON.data.push(firebase_JSON.Data[coordinate]);
     }
     return new_JSON;
 }
 
+//output converted format to console
 console.log(convert(firebase_JSON));
 
 // heatmap.js configuration
