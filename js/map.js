@@ -21,7 +21,10 @@ function snapshotToArray(snapshot){
 // Map object to be initialized after page loads
 // Needs to be global for popup events
 var map;
-
+var firebase_JSON = {
+    max: 8,
+    data:[]
+};
 // Authenticate Firebase
   var config = {
     apiKey: "AIzaSyCngnYmds3kumgSxI6ILWixSPBZuEnn8IE",
@@ -40,6 +43,7 @@ var database = firebase.database().ref("Data");
 //Read entire database and output to console
 database.on("value", function(snapshot){
     console.log(snapshot.val());
+    firebase_JSON.push(snapshot.val());
 }, function(error){
     console.log("Error: "+ error.code);
 });
@@ -51,6 +55,16 @@ firebase.database().ref('Data').once('value',function(snapshot){
 database.on("value", function(snapshot){
     console.log(snapshotToArray(snapshot));
 });
+
+function convert(firebase_JSON){
+    new_JSON = {max:8,data:[]};
+    for (var coordinate in firebase_JSON.Data){
+        new_JSON.data.push(firebase_JSON.Data[coordinate]);
+    }
+    return new_JSON;
+}
+
+console.log(convert(firebase_JSON));
 
 // heatmap.js configuration
 const cfg = {
