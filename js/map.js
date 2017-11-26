@@ -47,14 +47,11 @@ database.on("value", function(snapshot){
 }, function(error){
     console.log("Error: "+ error.code);
 });
-
+console.log(firebase_JSON);
+console.log(JSON.stringify(firebase_JSON));
 firebase.database().ref('Data').once('value',function(snapshot){
     console.log(JSON.stringify(snapshot.val()))
 })
-
-database.on("value", function(snapshot){
-    console.log(snapshotToArray(snapshot));
-});
 
 function convert(firebase_JSON){
     new_JSON = {max:8,data:[]};
