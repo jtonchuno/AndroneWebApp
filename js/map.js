@@ -1,5 +1,5 @@
 /* TODO:
-1. Get Firebase data in here
+1. Get Firebase data in heregit
 2. Fit firebase data to heatmap form
 3. Transfrom dBm data to count (logarithmic)
 4. Create function to look up signal data given position data for onclick popovers
@@ -40,17 +40,7 @@ database.on("value", function(snapshot){
 console.log(firebase_JSON);
 firebase.database().ref('Data').once('value',function(snapshot){
     console.log(JSON.stringify(snapshot.val()))
-})
-
-
-//convert from one format to another
-function convert(firebase_JSON){
-    new_JSON = {max:8,data:[]};
-    for (var coordinate in firebase_JSON.Data[0]){
-        new_JSON.data.push(firebase_JSON.Data[coordinate]);
-    }
-    return new_JSON;
-}
+});
 
 //output converted format to console
 console.log(convert(firebase_JSON));
@@ -126,4 +116,13 @@ function onMapClick(e) {
         .setLatLng(e.latlng)
         .setContent("You clicked the map at " + e.latlng.toString())
         .openOn(map);
+}
+
+//convert from one format to another
+function convert(firebase_JSON){
+    new_JSON = {max:8,data:[]};
+    for (var coordinate in firebase_JSON.Data[0]){
+        new_JSON.data.push(firebase_JSON.Data[coordinate]);
+    }
+    return new_JSON;
 }
