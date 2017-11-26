@@ -43,7 +43,7 @@ var database = firebase.database().ref("Data");
 //Read entire database and output to console
 database.on("value", function(snapshot){
     console.log(snapshot.val());
-    firebase_JSON.push(snapshot.val());
+    firebase_JSON.data.push(snapshot.val());
 }, function(error){
     console.log("Error: "+ error.code);
 });
