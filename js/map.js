@@ -122,9 +122,9 @@ function onMapClick(e) {
 //convert from one format to another
 function convert(firebase_JSON){
     new_JSON = {max:8,data:[]};
-    for (var coordinate in firebase_JSON.data[0]){
+    for (var coordinate in firebase_JSON.Data[0]){
         console.log(firebase_JSON[coordinate]);
-        new_JSON.data.push(firebase_JSON.data[0]);
+        new_JSON.data.push(firebase_JSON.Data[0]);
     }
     return new_JSON;
 }
