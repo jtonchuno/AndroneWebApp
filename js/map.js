@@ -33,6 +33,7 @@ database.on("value", function(snapshot){
     console.log(snapshot.val());
     firebase_JSON.data.push(snapshot.val());
     console.log(convert(firebase_JSON));
+    console.log(format(firebase_JSON));
 }, function(error){
     console.log("Error: "+ error.code);
 });
@@ -42,10 +43,6 @@ console.log(firebase_JSON);
 firebase.database().ref('data').once('value',function(snapshot){
     console.log(JSON.stringify(snapshot.val()))
 });
-
-//output converted format to console
-console.log(convert(firebase_JSON));
-console.log(format(firebase_JSON));
 
 // heatmap.js configuration
 const cfg = {
@@ -125,7 +122,7 @@ function convert(firebase_JSON){
     new_JSON = {max:8,data:[]};
     for (var coordinate in firebase_JSON.data[0]){
         console.log(firebase_JSON[coordinate]);
-        new_JSON.data.push(firebase_JSON.data[0]);
+        new_JSON.data.push(firebase_JSON.data[coordinate]);
     }
     return new_JSON;
 }
