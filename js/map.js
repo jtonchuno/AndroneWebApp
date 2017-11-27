@@ -43,7 +43,7 @@ firebase.database().ref('Data').once('value',function(snapshot){
 });
 
 //output converted format to console
-console.log(convert(firebase_JSON));
+console.log(convert(firebase_JSON))
 
 // heatmap.js configuration
 const cfg = {
