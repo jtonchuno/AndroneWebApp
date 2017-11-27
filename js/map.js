@@ -43,7 +43,7 @@ firebase.database().ref('Data').once('value',function(snapshot){
 });
 
 //output converted format to console
-console.log(convert(firebase_JSON))
+console.log(convert(firebase_JSON));
 
 // heatmap.js configuration
 const cfg = {
@@ -122,8 +122,8 @@ function onMapClick(e) {
 function convert(firebase_JSON){
     new_JSON = {max:8,data:[]};
     for (var coordinate in firebase_JSON.data[0]){
-        new_JSON.data.push(firebase_JSON.data[coordinate]);
         console.log(firebase_JSON[coordinate]);
+        new_JSON.data.push(firebase_JSON.data[0]);
     }
     return new_JSON;
 }
