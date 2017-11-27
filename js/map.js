@@ -26,7 +26,7 @@ var firebase_JSON = {
 firebase.initializeApp(config);
 
 //create a reference to the database
-var database = firebase.database().ref("Data");
+var database = firebase.database().ref("data");
 
 //Read entire database and output to console
 database.on("value", function(snapshot){
@@ -38,7 +38,7 @@ database.on("value", function(snapshot){
 
 //output JSON
 console.log(firebase_JSON);
-firebase.database().ref('Data').once('value',function(snapshot){
+firebase.database().ref('data').once('value',function(snapshot){
     console.log(JSON.stringify(snapshot.val()))
 });
 
