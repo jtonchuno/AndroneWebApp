@@ -32,6 +32,7 @@ var database = firebase.database().ref("data");
 database.on("value", function(snapshot){
     console.log(snapshot.val());
     firebase_JSON.data.push(snapshot.val());
+    console.log(convert(firebase_JSON));
 }, function(error){
     console.log("Error: "+ error.code);
 });
