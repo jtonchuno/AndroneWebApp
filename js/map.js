@@ -130,8 +130,9 @@ function convert(firebase_JSON){
 }
 
 function format(firebase_JSON){
-    new_JSON = {max:8, data:[]};
+    new_JSON2 = {max:8, data:[]};
     for(var i=0;i<firebase_JSON.data.length; i++){
-        new_JSON.push(firebase_JSON.data[i].count);
+        new_JSON2.push(firebase_JSON.data[i].count);
     }
+    return new_JSON2;
 }
