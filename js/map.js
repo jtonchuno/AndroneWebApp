@@ -123,6 +123,7 @@ function convert(firebase_JSON){
     new_JSON = {max:8,data:[]};
     for (var coordinate in firebase_JSON.data[0]){
         new_JSON.data.push(firebase_JSON.data[coordinate]);
+        console.log(firebase_JSON[coordinate]);
     }
     return new_JSON;
 }
