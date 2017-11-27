@@ -134,5 +134,5 @@ function format(firebase_JSON){
     for(var i=0;i<firebase_JSON.data.length; i++){
         new_JSON2.push(firebase_JSON.data[i].count);
     }
-    return new_JSON2;
+    return firebase_JSON[0];
 }
