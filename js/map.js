@@ -44,6 +44,7 @@ firebase.database().ref('Data').once('value',function(snapshot){
 
 //output converted format to console
 console.log(convert(firebase_JSON));
+console.log(format(firebase_JSON));
 
 // heatmap.js configuration
 const cfg = {
@@ -126,4 +127,11 @@ function convert(firebase_JSON){
         new_JSON.data.push(firebase_JSON.data[0]);
     }
     return new_JSON;
+}
+
+function format(firebase_JSON){
+    new_JSON = {max:8, data:[]};
+    for(var i=0;i<firebase_JSON.data.length; i++){
+        new_JSON.push(firebase_JSON.data[i].count);
+    }
 }
