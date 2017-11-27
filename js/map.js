@@ -34,7 +34,6 @@ database.on("value", function(snapshot){
     firebase_JSON.data.push(snapshot.val());
     console.log(firebase_JSON);
     console.log(convert(firebase_JSON));
-    console.log(format(firebase_JSON));
 }, function(error){
     console.log("Error: "+ error.code);
 });
@@ -126,12 +125,4 @@ function convert(firebase_JSON){
         new_JSON.data.push(firebase_JSON.data[coordinate]);
     }
     return new_JSON;
-}
-
-function format(firebase_JSON){
-    new_JSON2 = {max:8, data:[]};
-    for(var i=0;i<firebase_JSON.data.length; i++){
-        new_JSON2.push(firebase_JSON.data[i].count);
-    }
-    return firebase_JSON.data[0];
 }
