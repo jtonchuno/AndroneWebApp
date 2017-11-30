@@ -34,12 +34,14 @@ var coordinates = [];
 database.on("value", function(snapshot){
 
     snapshot.forEach(function(data){
-        object = `{"x": ${data.val().x}, "y": ${data.val().y}, "count": ${data.val().count}}`;
-        var json = JSON.parse(object);
+        object = {
+            "x": data.val().x, 
+            "y": data.val().y, 
+            "count": data.val().count
+        };
+        // var json = JSON.parse(object);
         coordinates.push(json);
     }); 
-    // coordinates += "]";
-    //coordinates += "";
     console.log(coordinates);
     // var parsedData = JSON.parse(coordinates);
     var testData = {
