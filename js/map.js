@@ -37,9 +37,7 @@ database.on("value", function(snapshot){
     }); 
     coordinates += "]";
     console.log(coordinates);
-    convert(coordinates);
-}, function(error){
-    console.log("Error: "+ error.code);
+    return coordinates;
 });
 //var parsedData = JSON.parse(coordinates);
 //output JSON
@@ -126,9 +124,4 @@ function onMapClick(e) {
         .setLatLng(e.latlng)
         .setContent("You clicked the map at " + e.latlng.toString())
         .openOn(map);
-}
-
-//convert from one format to another
-function convert(coordinates){
-    return coordinates;
 }
