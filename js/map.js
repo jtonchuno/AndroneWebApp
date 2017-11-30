@@ -28,15 +28,17 @@ firebase.initializeApp(config);
 //create a reference to the database
 var database = firebase.database().ref("data");
 
-var coordinates = `[`;
+var coordinates = [];
 
 //Read entire database and output to console
 database.on("value", function(snapshot){
 
     snapshot.forEach(function(data){
-        coordinates += `{"x": ${data.val().x}, "y": ${data.val().y}, "count": ${data.val().count}},`;
+        object = `{"x": ${data.val().x}, "y": ${data.val().y}, "count": ${data.val().count}}`;
+        var json = JSON.parse(object);
+        coordinates.push(json);
     }); 
-    coordinates += "]";
+    // coordinates += "]";
     //coordinates += "";
     console.log(coordinates);
     // var parsedData = JSON.parse(coordinates);
