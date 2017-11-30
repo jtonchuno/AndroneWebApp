@@ -42,7 +42,7 @@ database.on("value", function(snapshot){
     // var parsedData = JSON.parse(coordinates);
     const testData = {
         max: 8,
-        data
+        coordinates
     };
 
     initMap(testData);
