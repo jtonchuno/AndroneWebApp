@@ -30,13 +30,16 @@ var database = firebase.database().ref("data");
 
 //Read entire database and output to console
 database.on("value", function(snapshot){
-    console.log("---------------------------");
-    data = snapshot.val();
-    console.log(data);
-    console.log(typeof(data));
-    console.log(data[0]);
-    console.log(data.Coordinates);
-    console.log("---------------------------");
+
+    snapshot.forEach(function(data){
+        console.log("---------------------------");
+        console.log(data);
+        console.log(typeof(data));
+        console.log(data[0]);
+        console.log(data.Coordinates);
+        console.log("---------------------------");
+    });
+
     
 
     // console.log(snapshot.val());
