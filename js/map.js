@@ -42,7 +42,7 @@ database.on("value", function(snapshot){
 });
 //var parsedData = JSON.parse(coordinates);
 //output JSON
-console.log(firebase_JSON);
+console.log(coordinates);
 firebase.database().ref('data').once('value',function(snapshot){
     console.log(JSON.stringify(snapshot.val()))
 });
