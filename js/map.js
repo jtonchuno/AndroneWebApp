@@ -40,7 +40,7 @@ database.on("value", function(snapshot){
             "count": data.val().count
         };
         // var json = JSON.parse(object);
-        coordinates.push(json);
+        coordinates.push(object);
     }); 
     console.log(coordinates);
     // var parsedData = JSON.parse(coordinates);
