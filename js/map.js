@@ -35,10 +35,12 @@ database.on("value", function(snapshot){
     snapshot.forEach(function(data){
 
         console.log(data.val().count);
+        console.log(data.val().x);
+        console.log(data.val().y);
         coordinates += `{x: ${data.val().x}, y: ${data.val().y}, count: ${data.val().count}},`;
     }); 
-    data += "]";
-    console.log(data);
+    coordinates += "]";
+    console.log(coordinates);
     // var parsedData = JSON.parse(data);
 }, function(error){
     console.log("Error: "+ error.code);
