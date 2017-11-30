@@ -42,7 +42,6 @@ database.on("value", function(snapshot){
         // var json = JSON.parse(object);
         coordinates.push(object);
     }); 
-    console.log(coordinates);
     // var parsedData = JSON.parse(coordinates);
     var testData = {
         max: 8
