@@ -36,6 +36,7 @@ database.on("value", function(snapshot){
     snapshot.forEach(function(data){
         coordinates += `{"x": ${data.val().x}, "y": ${data.val().y}, "count": ${data.val().count}},`;
     }); 
+    coordinates--;
     //coordinates += "";
     console.log(coordinates);
     var parsedData = JSON.parse(coordinates);
