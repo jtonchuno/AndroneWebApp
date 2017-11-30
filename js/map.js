@@ -37,6 +37,7 @@ database.on("value", function(snapshot){
         coordinates += `{"x": ${data.val().x}, "y": ${data.val().y}, "count": ${data.val().count}},\n`;
     }); 
     coordinates += "]";
+    console.log(coordinates);
     var parsedData = JSON.parse(coordinates);
     const testData = {
         max: 8,
