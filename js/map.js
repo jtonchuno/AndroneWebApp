@@ -30,6 +30,12 @@ var database = firebase.database().ref("data");
 
 //Read entire database and output to console
 database.on("value", function(snapshot){
+    console.log(snapshot);
+    console.log(snapshot[0].val());
+    console.log(snapshot[0].count.val());
+    console.log(snapshot.type());
+    
+
     console.log(snapshot.val());
     firebase_JSON.data.push(snapshot.val());
     console.log(firebase_JSON);
@@ -46,6 +52,8 @@ console.log(firebase_JSON);
 firebase.database().ref('data').once('value',function(snapshot){
     console.log(JSON.stringify(snapshot.val()))
 });
+
+
 
 // heatmap.js configuration
 const cfg = {
