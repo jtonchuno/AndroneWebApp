@@ -37,7 +37,7 @@ database.on("value", function(snapshot){
     }); 
     coordinates += "]";
     console.log(coordinates);
-    return coordinates;
+    convert(coordinates);
 }, function(error){
     console.log("Error: "+ error.code);
 });
@@ -129,11 +129,6 @@ function onMapClick(e) {
 }
 
 //convert from one format to another
-function convert(firebase_JSON){
-    new_JSON = {max:8,data:[]};
-    for (var coordinate in firebase_JSON.data[0]){
-        console.log(firebase_JSON[coordinate]);
-        new_JSON.data.push(firebase_JSON.data[coordinate]);
-    }
-    return new_JSON;
+function convert(coordinates){
+    return coordinates;
 }
