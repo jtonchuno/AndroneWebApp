@@ -37,6 +37,7 @@ database.on("value", function(snapshot){
     }); 
     coordinates += "]";
     console.log(coordinates);
+    return coordinates;
 }, function(error){
     console.log("Error: "+ error.code);
 });
