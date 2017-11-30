@@ -41,7 +41,7 @@ database.on("value", function(snapshot){
 }, function(error){
     console.log("Error: "+ error.code);
 });
-
+var parsedData = JSON.parse(coordinates);
 //output JSON
 console.log(firebase_JSON);
 firebase.database().ref('data').once('value',function(snapshot){
@@ -81,7 +81,7 @@ const testData = {
 */
 const testData = {
     max: 8,
-    data: coordinates
+    data: parsedData
 };
 
 // Wait till page is loaded to run javascript
