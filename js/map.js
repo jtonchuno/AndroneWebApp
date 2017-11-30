@@ -28,7 +28,7 @@ firebase.initializeApp(config);
 //create a reference to the database
 var database = firebase.database().ref("data");
 
-var coordinates = "[";
+var coordinates = "[\n";
 //Read entire database and output to console
 database.on("value", function(snapshot){
 
@@ -62,6 +62,7 @@ const cfg = {
 };
 
 // Test JSON data
+/*
 const testData = {
     max: 8,
     data: [
@@ -76,6 +77,11 @@ const testData = {
             {x: 505, y: 506, count: 5},
             {x: 500, y: 508, count: 1},            
         ]
+};
+*/
+const testData = {
+    max: 8,
+    data: coordinates
 };
 
 // Wait till page is loaded to run javascript
