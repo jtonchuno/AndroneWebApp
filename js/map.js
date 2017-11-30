@@ -29,7 +29,7 @@ firebase.initializeApp(config);
 var database = firebase.database().ref("data");
 
 var coordinates = "[";
-console.log("max" + coordinates);
+
 //Read entire database and output to console
 database.on("value", function(snapshot){
 
@@ -37,11 +37,17 @@ database.on("value", function(snapshot){
         coordinates += `{x: ${data.val().x}, y: ${data.val().y}, count: ${data.val().count}},`;
     }); 
     coordinates += "]";
-    console.log(coordinates);
+
+    const testData = {
+        max: 8,
+        data: coordinates
+    };
+
+    initMap(testData);
 });
 //var parsedData = JSON.parse(coordinates);
 //output JSON
-console.log(coordinates);
+
 firebase.database().ref('data').once('value',function(snapshot){
     console.log(JSON.stringify(snapshot.val()))
 });
@@ -60,21 +66,21 @@ const cfg = {
 };
 
 // Test JSON data
-const testData = {
-    max: 8,
-    data: [
-            {x: 500, y: 500, count: 3},
-            {x: 501, y: 500, count: 1},
-            {x: 504, y: 504, count: 3},
-            {x: 511, y: 503, count: 2},
-            {x: 506, y: 506, count: 8},
-            {x: 508, y: 512, count: 1},
-            {x: 504, y: 503, count: 1},
-            {x: 502, y: 504, count: 3},
-            {x: 505, y: 506, count: 5},
-            {x: 500, y: 508, count: 1},            
-        ]
-};
+// const testData = {
+//     max: 8,
+//     data: [
+//             {x: 500, y: 500, count: 3},
+//             {x: 501, y: 500, count: 1},
+//             {x: 504, y: 504, count: 3},
+//             {x: 511, y: 503, count: 2},
+//             {x: 506, y: 506, count: 8},
+//             {x: 508, y: 512, count: 1},
+//             {x: 504, y: 503, count: 1},
+//             {x: 502, y: 504, count: 3},
+//             {x: 505, y: 506, count: 5},
+//             {x: 500, y: 508, count: 1},            
+//         ]
+// };
 /*
 const testData = {
     max: 8,
@@ -83,7 +89,7 @@ const testData = {
 */
 // Wait till page is loaded to run javascript
 window.onload = function() {
-    initMap(testData);
+    // initMap(testData);
 };
 
 function initMap(data) {
