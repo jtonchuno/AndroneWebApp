@@ -35,15 +35,15 @@ database.on("value", function(snapshot){
     snapshot.forEach(function(data){
         coordinates += `{x: ${data.val().x}, y: ${data.val().y}, count: ${data.val().count}},`;
     }); 
-    coordinates -= ",";
     coordinates += "]";
     console.log(coordinates);
-    // var parsedData = JSON.parse(data);
+    var parsedData = JSON.parse(coordinates);
+    return parsedData;
 }, function(error){
     console.log("Error: "+ error.code);
 });
 //var parsedData = JSON.parse(coordinates);
-//console.log(parsedData);
+console.log(parsedData);
 //output JSON
 console.log(firebase_JSON);
 firebase.database().ref('data').once('value',function(snapshot){
