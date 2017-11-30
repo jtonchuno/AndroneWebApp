@@ -36,7 +36,7 @@ database.on("value", function(snapshot){
         console.log(data.val());
         console.log(typeof(data.val()));
         console.log(data.val()[0]);
-        console.log(data.count);
+        console.log(data.val().count);
         console.log("---------------------------");
     });
 
