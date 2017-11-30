@@ -46,8 +46,8 @@ console.log(coordinates);
 firebase.database().ref('data').once('value',function(snapshot){
     console.log(JSON.stringify(snapshot.val()))
 });
-var parsedData = JSON.parse(coordinates);
-console.log(parsedData);
+//var parsedData = JSON.parse(coordinates);
+//console.log(parsedData);
 
 // heatmap.js configuration
 const cfg = {
@@ -61,7 +61,6 @@ const cfg = {
 };
 
 // Test JSON data
-/*
 const testData = {
     max: 8,
     data: [
@@ -77,12 +76,12 @@ const testData = {
             {x: 500, y: 508, count: 1},            
         ]
 };
-*/
+/*
 const testData = {
     max: 8,
     data: parsedData
 };
-
+*/
 // Wait till page is loaded to run javascript
 window.onload = function() {
     initMap(testData);
