@@ -37,20 +37,17 @@ database.on("value", function(snapshot){
     }); 
     coordinates += "]";
     console.log(coordinates);
-    var parsedData = JSON.parse(coordinates);
-    return parsedData;
 }, function(error){
     console.log("Error: "+ error.code);
 });
 //var parsedData = JSON.parse(coordinates);
-console.log(parsedData);
 //output JSON
 console.log(firebase_JSON);
 firebase.database().ref('data').once('value',function(snapshot){
     console.log(JSON.stringify(snapshot.val()))
 });
-
-
+var parsedData = JSON.parse(coordinates);
+console.log(parsedData);
 
 // heatmap.js configuration
 const cfg = {
