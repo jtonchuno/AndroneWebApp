@@ -28,16 +28,16 @@ firebase.initializeApp(config);
 //create a reference to the database
 var database = firebase.database().ref("data");
 
+var coordinates = "[";
+console.log("max" + coordinates);
 //Read entire database and output to console
-var coordinates = database.on("value", function(snapshot){
-    coordinates = "[";
-    
+database.on("value", function(snapshot){
+
     snapshot.forEach(function(data){
         coordinates += `{x: ${data.val().x}, y: ${data.val().y}, count: ${data.val().count}},`;
     }); 
     coordinates += "]";
     console.log(coordinates);
-    return coordinates;
 });
 //var parsedData = JSON.parse(coordinates);
 //output JSON
