@@ -33,10 +33,10 @@ database.on("value", function(snapshot){
 
     snapshot.forEach(function(data){
         console.log("---------------------------");
-        console.log(data);
-        console.log(typeof(data));
-        console.log(data[0]);
-        console.log(data.Coordinates);
+        console.log(data.val());
+        console.log(typeof(data.val()));
+        console.log(data.val()[0]);
+        console.log(data.count);
         console.log("---------------------------");
     });
 
