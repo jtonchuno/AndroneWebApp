@@ -32,7 +32,7 @@ var database = firebase.database().ref("data");
 database.on("value", function(snapshot){
     console.log(snapshot);
     console.log(snapshot.val()[0]);
-    console.log(snapshot.val()[0].count);
+    console.log(snapshot.val()[0]);
     console.log(snapshot.val.type());
     
 
