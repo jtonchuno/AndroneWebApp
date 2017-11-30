@@ -30,14 +30,23 @@ var database = firebase.database().ref("data");
 
 //Read entire database and output to console
 database.on("value", function(snapshot){
-    console.log(snapshot.val()[0]);
-    firebase_JSON.data.push(snapshot.val());
-    console.log(typeof(snapshot.val()));
-    console.log(firebase_JSON);
-    console.log(firebase_JSON[0]);
-    console.log(firebase_JSON.data[0]);
-    console.log(firebase_JSON.data);
-    console.log(convert(firebase_JSON));
+    console.log("---------------------------");
+    data = snapshot.val();
+    console.log(data);
+    console.log(typeof(data));
+    console.log(data[0]);
+    console.log(data.count);
+    console.log("---------------------------");
+    
+
+    // console.log(snapshot.val());
+    // firebase_JSON.data.push(snapshot.val());
+    // console.log(typeof(snapshot.val()));
+    // console.log(firebase_JSON);
+    // console.log(firebase_JSON[0]);
+    // console.log(firebase_JSON.data[0]);
+    // console.log(firebase_JSON.data);
+    // console.log(convert(firebase_JSON));
 }, function(error){
     console.log("Error: "+ error.code);
 });
