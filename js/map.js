@@ -35,7 +35,7 @@ database.on("value", function(snapshot){
     console.log(data);
     console.log(typeof(data));
     console.log(data[0]);
-    console.log(data.count);
+    console.log(data.Coordinates);
     console.log("---------------------------");
     
 
