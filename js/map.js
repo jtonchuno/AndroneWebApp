@@ -28,28 +28,18 @@ firebase.initializeApp(config);
 //create a reference to the database
 var database = firebase.database().ref("data");
 
+var coordinates = "[";
 //Read entire database and output to console
 database.on("value", function(snapshot){
 
     snapshot.forEach(function(data){
-        console.log("---------------------------");
-        console.log(data.val());
-        console.log(typeof(data.val()));
-        console.log(data.val()[0]);
+
         console.log(data.val().count);
-        console.log("---------------------------");
-    });
-
-    
-
-    // console.log(snapshot.val());
-    // firebase_JSON.data.push(snapshot.val());
-    // console.log(typeof(snapshot.val()));
-    // console.log(firebase_JSON);
-    // console.log(firebase_JSON[0]);
-    // console.log(firebase_JSON.data[0]);
-    // console.log(firebase_JSON.data);
-    // console.log(convert(firebase_JSON));
+        coordinates += `{x: ${data.val().x}, y: ${data.val().y}, count: ${data.val().count}},`;
+    }); 
+    data += "]";
+    console.log(data);
+    // var parsedData = JSON.parse(data);
 }, function(error){
     console.log("Error: "+ error.code);
 });
