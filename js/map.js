@@ -28,7 +28,7 @@ firebase.initializeApp(config);
 //create a reference to the database
 var database = firebase.database().ref("data");
 
-var coordinates = "[\n";
+var coordinates = "[";
 //Read entire database and output to console
 database.on("value", function(snapshot){
 
