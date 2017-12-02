@@ -100,9 +100,11 @@ function initMap(data) {
 
 // Clicking the map popups the lat and long of that position
 // Eventually should be the signal data of that position
+/*
 function onMapClick(e) {
     var popup = L.popup()
         .setLatLng(e.latlng)
         .setContent("You clicked the map at " + e.latlng.toString())
         .openOn(map);
 }
+*/
