@@ -107,7 +107,7 @@ function initMap(data) {
     heatmapLayer.setData(data);
     
     // Set up onclick event
-    map.on('click', onMapClick);    
+    //map.on('click', onMapClick);    
 }
 
 // Clicking the map popups the lat and long of that position
