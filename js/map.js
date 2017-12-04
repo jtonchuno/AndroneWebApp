@@ -14,6 +14,7 @@ var firebase_JSON = {
     data:[]
 };
 // Authenticate Firebase
+/*
   var config = {
     apiKey: "AIzaSyCngnYmds3kumgSxI6ILWixSPBZuEnn8IE",
     authDomain: "androne-1494224644502.firebaseapp.com",
@@ -22,22 +23,33 @@ var firebase_JSON = {
     storageBucket: "androne-1494224644502.appspot.com",
     messagingSenderId: "270186001542"
   };
+  */
+  
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyC0RYq-9en5kXoOLkgURmMJfkuo1pgleUo",
+    authDomain: "sigmapdrone.firebaseapp.com",
+    databaseURL: "https://sigmapdrone.firebaseio.com",
+    projectId: "sigmapdrone",
+    storageBucket: "sigmapdrone.appspot.com",
+    messagingSenderId: "981561100419"
+  };
 //Initialize App
 firebase.initializeApp(config);
 
 //create a reference to the database
-var database = firebase.database().ref("data");
+var database = firebase.database().ref("sigmapdrone");
 
 var coordinates = [];
 
 //Read entire database and output to console
 database.on("value", function(snapshot){
 
-    snapshot.forEach(function(data){
+    snapshot.forEach(function(sigmapdrone){
         object = {
-            "x": data.val().x, 
-            "y": data.val().y, 
-            "count": data.val().count
+            "x": sigmapdrone.val().x, 
+            "y": sigmapdrone.val().y, 
+            "count": sigmapdrone.val().wifi
         };
         // var json = JSON.parse(object);
         coordinates.push(object);
