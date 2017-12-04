@@ -56,7 +56,7 @@ database.on("value", function(snapshot){
     }); 
     // var parsedData = JSON.parse(coordinates);
     var testData = {
-        max: 8
+        max: 90
     };
 
     testData.data = coordinates;
