@@ -44,7 +44,8 @@ var coordinates = [];
 
 //Read entire database and output to console
 database.on("value", function(snapshot){
-
+    console.log("in on");
+    console.log(snapshot.val());
     snapshot.forEach(function(sigmapdrone){
         console.log("in snapshot");
         console.log(sigmapdrone.val());
