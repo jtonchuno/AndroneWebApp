@@ -71,9 +71,9 @@ var database = firebase.database().ref("sigmapdrone").once("value").then(functio
 //         coordinates.push(object);
 //     }); 
 //     // var parsedData = JSON.parse(coordinates);
-//     var testData = {
-//         max: 90
-//     };
+    var testData = {
+        max: 90
+    };
 
     testData.data = coordinates;
 
