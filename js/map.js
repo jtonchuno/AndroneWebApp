@@ -43,7 +43,9 @@ console.log(result);
 var coordinates = [];
 
 //create a reference to the database
-var database = firebase.database().ref("/sigmapdrone/").once("value").then(function(snapshot){
+var database = firebase.database().ref("sigmapdrone")
+
+database.once("value").then(function(snapshot){
     console.log("in on");
     console.log(snapshot.val());
     snapshot.forEach(function(sigmapdrone){
