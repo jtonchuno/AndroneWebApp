@@ -62,6 +62,9 @@ database.on("value", function(snapshot){
 
     testData.data = coordinates;
 
+    console.log("before init");
+    console.log(testData);
+
     initMap(testData);
 });
 
@@ -81,6 +84,9 @@ window.onload = function() {
 };
 
 function initMap(data) {
+    console.log("in init");
+    console.log(data);
+
     // Create heatmap layer and add data
     var heatmapLayer = new HeatmapOverlay(cfg);
     
