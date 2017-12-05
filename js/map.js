@@ -46,36 +46,15 @@ var coordinates = [];
 var database = firebase.database().ref()
 
 database.once("value").then(function(snapshot){
-    console.log("in on");
-    console.log(snapshot.val());
     snapshot.forEach(function(sigmapdrone){
-        console.log("in snapshot");
-        console.log(sigmapdrone.val());
         object = {
             "x": sigmapdrone.val().x, 
             "y": sigmapdrone.val().y, 
             "count": sigmapdrone.val().wifi
         };
-        // var json = JSON.parse(object);
         coordinates.push(object);
     });
 
-
-// database.on("value", function(snapshot){
-//     console.log("in on");
-//     console.log(snapshot.val());
-//     snapshot.forEach(function(sigmapdrone){
-//         console.log("in snapshot");
-//         console.log(sigmapdrone.val());
-//         object = {
-//             "x": sigmapdrone.val().x, 
-//             "y": sigmapdrone.val().y, 
-//             "count": sigmapdrone.val().wifi
-//         };
-//         // var json = JSON.parse(object);
-//         coordinates.push(object);
-//     }); 
-//     // var parsedData = JSON.parse(coordinates);
     var testData = {
         max: 90
     };
@@ -87,9 +66,6 @@ database.once("value").then(function(snapshot){
 
     initMap(testData);
 });
-
-console.log("database");
-console.log(database);
 
 // heatmap.js configuration
 const cfg = {
@@ -107,9 +83,6 @@ window.onload = function() {
 };
 
 function initMap(data) {
-    console.log("in init");
-    console.log(data);
-
     // Create heatmap layer and add data
     var heatmapLayer = new HeatmapOverlay(cfg);
     
