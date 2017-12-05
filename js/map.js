@@ -58,10 +58,6 @@ database.once("value").then(function(snapshot){
         };
         // var json = JSON.parse(object);
         coordinates.push(object);
-<<<<<<< HEAD
-    }); 
-    // var parsedData = JSON.parse(coordinates);
-=======
     });
 
 
@@ -80,7 +76,6 @@ database.once("value").then(function(snapshot){
 //         coordinates.push(object);
 //     }); 
 //     // var parsedData = JSON.parse(coordinates);
->>>>>>> 3b79fec1fc12e82636c50ccaa9cd18958668b72d
     var testData = {
         max: 90
     };
