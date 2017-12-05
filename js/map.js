@@ -37,15 +37,15 @@ var firebase_JSON = {
 //Initialize App
 firebase.initializeApp(config);
 
-//create a reference to the database
-var database = firebase.database().ref("sigmapdrone");
-
 var coordinates = [];
 
-//Read entire database and output to console
-database.on("value", function(snapshot){
-
-    snapshot.forEach(function(snapshot){
+//create a reference to the database
+var database = firebase.database().ref("sigmapdrone").once("value").then(function(snapshot){
+    console.log("in on");
+    console.log(snapshot.val());
+    snapshot.forEach(function(sigmapdrone){
+        console.log("in snapshot");
+        console.log(sigmapdrone.val());
         object = {
             "x": sigmapdrone.val().x, 
             "y": sigmapdrone.val().y, 
@@ -53,12 +53,27 @@ database.on("value", function(snapshot){
         };
         // var json = JSON.parse(object);
         coordinates.push(object);
-        console.log(object);
-    }); 
-    // var parsedData = JSON.parse(coordinates);
-    var testData = {
-        max: 1000
-    };
+    });
+
+
+// database.on("value", function(snapshot){
+//     console.log("in on");
+//     console.log(snapshot.val());
+//     snapshot.forEach(function(sigmapdrone){
+//         console.log("in snapshot");
+//         console.log(sigmapdrone.val());
+//         object = {
+//             "x": sigmapdrone.val().x, 
+//             "y": sigmapdrone.val().y, 
+//             "count": sigmapdrone.val().wifi
+//         };
+//         // var json = JSON.parse(object);
+//         coordinates.push(object);
+//     }); 
+//     // var parsedData = JSON.parse(coordinates);
+//     var testData = {
+//         max: 90
+//     };
 
     testData.data = coordinates;
 
