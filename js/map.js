@@ -46,6 +46,8 @@ var coordinates = [];
 database.on("value", function(snapshot){
 
     snapshot.forEach(function(sigmapdrone){
+        console.log("in snapshot");
+        console.log(sigmapdrone.val());
         object = {
             "x": sigmapdrone.val().x, 
             "y": sigmapdrone.val().y, 
@@ -60,6 +62,9 @@ database.on("value", function(snapshot){
     };
 
     testData.data = coordinates;
+
+    console.log("before init");
+    console.log(testData);
 
     initMap(testData);
 });
@@ -82,6 +87,7 @@ window.onload = function() {
 function initMap(data) {
     console.log("in init");
     console.log(data);
+
     // Create heatmap layer and add data
     var heatmapLayer = new HeatmapOverlay(cfg);
     
