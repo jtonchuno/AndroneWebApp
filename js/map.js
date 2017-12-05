@@ -53,7 +53,6 @@ database.on("value", function(snapshot){
         };
         // var json = JSON.parse(object);
         coordinates.push(object);
-        console.log(object);
     }); 
     // var parsedData = JSON.parse(coordinates);
     var testData = {
