@@ -35,7 +35,10 @@ var firebase_JSON = {
     messagingSenderId: "981561100419"
   };
 //Initialize App
-firebase.initializeApp(config);
+var result = firebase.initializeApp(config);
+
+console.log("result");
+console.log(result);
 
 var coordinates = [];
 
@@ -82,6 +85,9 @@ var database = firebase.database().ref("sigmapdrone").once("value").then(functio
 
     initMap(testData);
 });
+
+console.log("database");
+console.log(database);
 
 // heatmap.js configuration
 const cfg = {
